@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>VibeCheck AI</title>
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url("/static/bg.jpg");
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .box {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 40px;
+            border-radius: 25px;
+            width: 420px;
+            margin: auto;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            font-size: 32px;
+        }
+
+        input {
+            width: 85%;
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 12px;
+            background: black;
+            color: white;
+            margin-top: 15px;
+        }
+
+        h3 {
+            font-size: 28px;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <h2>💖 VibeCheck AI</h2>
+
+        <form method="POST">
+            <input type="text" name="text" placeholder="Tell me your vibe..." required>
+            <br><br>
+            <button type="submit">Analyze</button>
+        </form>
+
+        {% if result %}
+        <h3>{{ result.mood }}</h3>
+        <p><b>Vibe:</b> {{ result.vibe }}</p>
+        <p>{{ result.response }}</p>
+        <p>{{ result.advice }}</p>
+        {% endif %}
+    </div>
+
+</body>
+
+</html>
