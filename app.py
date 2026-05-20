@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+﻿from flask import Flask, render_template, request
 from textblob import TextBlob
 import nltk
 from nltk.sentiment import SentimentIntensityAnalyzer
