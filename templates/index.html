@@ -1,7 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
+    <meta charset="UTF-8">
     <title>VibeCheck AI</title>
 
     <!-- Font -->
@@ -10,7 +11,7 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background: url("/static/bg.jpg");
+            background: url("{{ url_for('static', filename='bg.jpg') }}");
             background-size: cover;
             background-position: center;
             text-align: center;
@@ -60,7 +61,7 @@
 <body>
 
     <div class="box">
-        <h2>💖 VibeCheck AI</h2>
+        <h2>&#x1F496; VibeCheck AI</h2>
 
         <form method="POST">
             <input type="text" name="text" placeholder="Tell me your vibe..." required>
@@ -73,6 +74,8 @@
         <p><b>Vibe:</b> {{ result.vibe }}</p>
         <p>{{ result.response }}</p>
         <p>{{ result.advice }}</p>
+        <p><b>AI Confidence:</b> {{ (result.confidence * 100) | round(0) }}%</p>
+        <p><b>Why this result:</b> {{ result.reasoning }}</p>
         {% endif %}
     </div>
 
